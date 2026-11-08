@@ -1,0 +1,67 @@
+import { navLinks } from "@/lib/content/site";
+import { Icon } from "@/components/ui/icon";
+import { Logo } from "@/components/ui/logo";
+
+export function Footer() {
+  return (
+    <footer className="relative overflow-hidden bg-brand text-white">
+      <div
+        className="geometric-pattern absolute inset-0 text-white"
+        aria-hidden="true"
+      />
+
+      <div className="container-page relative py-14 sm:py-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div className="flex flex-col items-start">
+            <Logo variant="onDark" />
+            <p className="mt-6 max-w-sm text-[15px] leading-8 text-white/70">
+              مساحة إسلامية هادئة تجمع الأذكار والقرآن والأدعية، لتكون رفيقك
+              اليومي في لحظات السكينة والطمأنينة.
+            </p>
+
+            <nav aria-label="روابط التذييل" className="mt-7">
+              <ul className="flex flex-wrap gap-x-6 gap-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-sm font-medium text-white/70 transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          <figure className="relative overflow-hidden rounded-4xl border border-white/12 bg-white/[0.06] p-6 sm:p-8">
+            <div
+              className="geometric-pattern absolute inset-0 text-white"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <span className="grid size-9 place-items-center rounded-full bg-white/10 text-accent ring-1 ring-white/10">
+                <Icon name="sparkle" className="size-4" />
+              </span>
+              <blockquote className="mt-6 font-quran text-2xl leading-[2] text-white sm:text-[1.7rem]">
+                رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ
+                عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ
+                وَأَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ
+              </blockquote>
+              <figcaption className="mt-5 flex items-center gap-2 text-xs text-white/70">
+                <span className="h-px w-4 bg-accent" aria-hidden="true" />
+                دعاء سليمان عليه السلام · سورة النمل، الآية ١٩
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between">
+          <p>© ٢٠٢٦ قريب. جميع الحقوق محفوظة.</p>
+          <p>صُنع بمحبة لخدمة الذكر.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
