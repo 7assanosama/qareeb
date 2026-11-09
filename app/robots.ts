@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://qareeb.app/sitemap.xml",
+    sitemap: "https://qareeb.sifrmind.com/sitemap.xml",
   };
 }

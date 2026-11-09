@@ -3,7 +3,7 @@ import type { DhikrSection } from "@/lib/types/content";
 export const propheticDuas: DhikrSection = {
   id: "prophetic-duas",
   title: "الأدعية النبوية",
-  description: "أدعية ثابتة عن النبي ﷺ في مواطن متفرقة.",
+  description: "أدعية ثابتة عن النبي ﷺ في مواقف مختلفة من يومك.",
   items: [
     {
       id: "dua-anxiety",

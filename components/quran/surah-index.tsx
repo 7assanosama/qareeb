@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { QuranSurah } from "@/lib/types/content";
+import { toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
 
 type Props = {
@@ -34,13 +35,16 @@ export function SurahIndex({ surahs }: Props) {
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="ابحث عن سورة (اسم أو رقم)"
+          aria-label="ابحث عن سورة"
+          placeholder="ابحث باسم السورة أو رقمها"
           className="w-full rounded-full border border-line bg-surface py-3 ps-11 pe-4 text-sm text-foreground placeholder:text-muted focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20"
         />
       </div>
 
       <p className="mt-4 text-xs text-muted">
-        {filtered.length} من {surahs.length} سورة
+        {query.trim()
+          ? `${toArabicDigits(filtered.length)} من ${toArabicDigits(surahs.length)} سورة`
+          : `${toArabicDigits(surahs.length)} سورة جاهزة للقراءة`}
       </p>
 
       <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -52,12 +56,12 @@ export function SurahIndex({ surahs }: Props) {
             >
               <div className="flex items-center gap-3">
                 <span className="grid size-9 place-items-center rounded-full bg-primary-soft text-xs font-semibold text-primary-ink">
-                  {surah.number}
+                  {toArabicDigits(surah.number)}
                 </span>
                 <div>
                   <p className="font-display text-base font-bold">{surah.name}</p>
                   <p className="text-xs text-muted">
-                    {surah.ayahCount} آية ·{" "}
+                    {toArabicDigits(surah.ayahCount)} آية ·{" "}
                     {surah.revelationType === "Meccan" ? "مكية" : "مدنية"}
                   </p>
                 </div>
@@ -73,7 +77,7 @@ export function SurahIndex({ surahs }: Props) {
 
       {filtered.length === 0 ? (
         <p className="mt-8 text-center text-sm text-muted">
-          لا توجد نتائج للبحث.
+          لم نجد سورة بهذا البحث. جرّب اسمًا آخر أو رقم السورة.
         </p>
       ) : null}
     </div>

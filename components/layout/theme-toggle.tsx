@@ -37,15 +37,15 @@ export function ThemeToggle({ className }: { className?: string }) {
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label="تبديل الوضع الليلي والنهاري"
-      title="تبديل الوضع الليلي والنهاري"
+      aria-label="بدّل بين الوضع الفاتح والداكن"
+      title="بدّل بين الوضع الفاتح والداكن"
       className={cn(
-        "grid size-11 shrink-0 place-items-center rounded-full border border-line bg-surface text-muted transition-colors duration-200 hover:border-line-strong hover:text-foreground",
+        "grid size-9 shrink-0 place-items-center rounded-full border border-line bg-surface text-muted transition-colors duration-200 hover:border-line-strong hover:text-foreground",
         className,
       )}
     >
-      <Icon name="moon" className="size-[18px] dark:hidden" />
-      <Icon name="sun" className="hidden size-[18px] dark:block" />
+      <Icon name="moon" className="size-4.5 dark:hidden" />
+      <Icon name="sun" className="hidden size-4.5 dark:block" />
     </button>
   );
 }

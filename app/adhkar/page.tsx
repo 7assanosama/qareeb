@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { adhkarSections } from "@/lib/content";
+import { formatDhikrCount } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export const metadata: Metadata = {
   title: "الأذكار | قريب",
-  description: "أقسام الأذكار: صبح، مساء، نوم، استيقاظ، بعد الصلاة، والأدعية النبوية.",
+  description:
+    "أذكار الصباح والمساء والنوم والاستيقاظ، وأذكار ما بعد الصلاة، وأدعية من السنة. اختر ما يناسب وقتك واقرأه على مهل.",
 };
 
 export default function AdhkarIndexPage() {
@@ -15,8 +17,8 @@ export default function AdhkarIndexPage() {
       <div className="container-page">
         <SectionHeading
           eyebrow="الأذكار"
-          title="أقسام الأذكار"
-          description="اختر قسماً للقراءة مع عداد تفاعلي وحفظ تقدمك."
+          title="اختر ذكرك"
+          description="كل قسم يحفظ موضعك وعددك، لتكمل من حيث توقفت."
         />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {adhkarSections.map((section) => (
@@ -32,10 +34,10 @@ export default function AdhkarIndexPage() {
                 </p>
               ) : null}
               <p className="mt-4 text-xs text-muted">
-                {section.items.length} ذكر
+                {formatDhikrCount(section.items.length)}
               </p>
               <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-primary-ink">
-                افتح القسم
+                اقرأ الأذكار
                 <Icon name="arrow-left" className="size-3.5 transition-transform group-hover:-translate-x-1" />
               </span>
             </Link>

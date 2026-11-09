@@ -3,7 +3,7 @@ import type { DhikrSection } from "@/lib/types/content";
 export const evening: DhikrSection = {
   id: "evening",
   title: "أذكار المساء",
-  description: "أذكار تُقال من العصر إلى غروب الشمس.",
+  description: "من العصر إلى الغروب، أذكار تختم بها نهارك.",
   items: [
     {
       id: "evening-ayat-kursi",

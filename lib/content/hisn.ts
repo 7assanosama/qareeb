@@ -4,7 +4,7 @@ export const hisnCategories: readonly HisnCategory[] = [
   {
     id: "hisn-morning-evening",
     title: "أذكار الصباح والمساء (حصن المسلم)",
-    description: "من حصن المسلم — أذكار الصباح والمساء.",
+    description: "أذكار الصباح والمساء من حصن المسلم.",
     items: [
       {
         id: "hisn-morning-1",
@@ -33,7 +33,7 @@ export const hisnCategories: readonly HisnCategory[] = [
   {
     id: "hisn-sleep",
     title: "أذكار النوم (حصن المسلم)",
-    description: "من حصن المسلم — أذكار قبل النوم.",
+    description: "أذكار قبل النوم من حصن المسلم.",
     items: [
       {
         id: "hisn-sleep-1",
@@ -51,7 +51,7 @@ export const hisnCategories: readonly HisnCategory[] = [
   {
     id: "hisn-distress",
     title: "أدعية الكرب والهم (حصن المسلم)",
-    description: "من حصن المسلم — أدعية للمصائب والكرب.",
+    description: "أدعية للمصائب والكرب من حصن المسلم.",
     items: [
       {
         id: "hisn-distress-1",
@@ -80,7 +80,7 @@ export const hisnCategories: readonly HisnCategory[] = [
   {
     id: "hisn-mosque",
     title: "أذكار المسجد (حصن المسلم)",
-    description: "من حصن المسلم — دخول وخروج المسجد.",
+    description: "أذكار دخول المسجد وخروجه من حصن المسلم.",
     items: [
       {
         id: "hisn-mosque-enter",

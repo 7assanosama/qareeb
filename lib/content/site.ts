@@ -6,10 +6,10 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "الرئيسية", href: "#home" },
-  { label: "الأذكار", href: "#adhkar" },
-  { label: "القرآن", href: "/quran" },
-  { label: "التسبيح", href: "#tasbih" },
+  { label: "الرئيسية", href: "/" },
+  { label: "الأذكار", href: "/#adhkar" },
+  { label: "القرآن", href: "/#quran" },
+  { label: "التسبيح", href: "/#tasbih" },
   { label: "المفضلة", href: "/favorites" },
 ];
 
@@ -23,37 +23,38 @@ export type DhikrCategory = {
 export const dhikrCategories: DhikrCategory[] = [
   {
     title: "أذكار الصباح",
-    description: "بداية هادئة ليومك، تفتتحها بحمد الله وذكره.",
+    description: "ابدأ يومك بذكر الله، واستودعه قلبك ووقتك وكل خطواتك.",
     icon: "sunrise",
     sectionId: "morning",
   },
   {
     title: "أذكار المساء",
-    description: "سكينة تختم بها يومك، وتستقبل بها ليلك.",
+    description: "اجعل ختام يومك ذكرًا لله، وجدّد صلتك به قبل أن يمضي النهار.",
     icon: "moon-star",
     sectionId: "evening",
   },
   {
     title: "أذكار النوم",
-    description: "نَمْ على ذكر الله، واطمئن قلبك قبل أن تغفو.",
+    description: "قبل أن تغمض عينيك، اذكر ربك وفوّض أمرك إليه ونم على ذكره.",
     icon: "bed",
     sectionId: "sleep",
   },
   {
     title: "أذكار الاستيقاظ",
-    description: "أول ما تفتح به عينيك حمد وشكر لله.",
+    description: "لك يوم جديد أنعم الله به عليك، فابدأه بالحمد والشكر والذكر.",
     icon: "sun",
     sectionId: "waking",
   },
   {
-    title: "أذكار بعد الصلاة",
-    description: "لحظة ذكر تختم بها فريضتك قبل أن تنصرف.",
+    title: "أذكار ما بعد الصلاة",
+    description: "لا تجعل سلامك نهاية لحظاتك مع الله، وأتبع صلاتك بذكره.",
     icon: "prayer",
     sectionId: "after-prayer",
   },
   {
-    title: "الأدعية المأثورة",
-    description: "دعوات ثابتة من الكتاب والسنة، بلا زيادة ولا نقصان.",
+    title: "الأدعية النبوية",
+    description:
+      "من جوامع دعاء النبي ﷺ، كلمات تسأل بها الله الخير وتلجأ إليه في كل حال.",
     icon: "hands",
     sectionId: "prophetic-duas",
   },

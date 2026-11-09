@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { adhkarSections } from "@/lib/content/adhkar";
 import { quran } from "@/lib/content/quran";
 
-const BASE_URL = "https://qareeb.app";
+const BASE_URL = "https://qareeb.sifrmind.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [

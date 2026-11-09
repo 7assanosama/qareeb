@@ -10,16 +10,17 @@ export function Footer() {
         aria-hidden="true"
       />
 
-      <div className="container-page relative py-14 sm:py-16 lg:py-20">
+      <div className="container-page relative pt-4 pb-7">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div className="flex flex-col items-start">
             <Logo variant="onDark" />
-            <p className="mt-6 max-w-sm text-[15px] leading-8 text-white/70">
-              مساحة إسلامية هادئة تجمع الأذكار والقرآن والأدعية، لتكون رفيقك
-              اليومي في لحظات السكينة والطمأنينة.
+
+            <p className="max-w-sm text-sm leading-5 text-white/70">
+              مساحة تجمع لك الأذكار والقرآن والأدعية، لتجد طريقك إلى ذكر الله في
+              تفاصيل يومك، وتبقى على صلة به في كل حين.
             </p>
 
-            <nav aria-label="روابط التذييل" className="mt-7">
+            <nav aria-label="روابط الموقع" className="mt-5">
               <ul className="flex flex-wrap gap-x-6 gap-y-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
@@ -35,31 +36,23 @@ export function Footer() {
             </nav>
           </div>
 
-          <figure className="relative overflow-hidden rounded-4xl border border-white/12 bg-white/[0.06] p-6 sm:p-8">
-            <div
-              className="geometric-pattern absolute inset-0 text-white"
-              aria-hidden="true"
-            />
-            <div className="relative">
-              <span className="grid size-9 place-items-center rounded-full bg-white/10 text-accent ring-1 ring-white/10">
-                <Icon name="sparkle" className="size-4" />
-              </span>
-              <blockquote className="mt-6 font-quran text-2xl leading-[2] text-white sm:text-[1.7rem]">
-                رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ
-                عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ
-                وَأَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ
-              </blockquote>
-              <figcaption className="mt-5 flex items-center gap-2 text-xs text-white/70">
-                <span className="h-px w-4 bg-accent" aria-hidden="true" />
-                دعاء سليمان عليه السلام · سورة النمل، الآية ١٩
-              </figcaption>
-            </div>
+          <figure className="relative overflow-hidden rounded-4xl border border-white/12 bg-white/[0.06] px-9 pt-5 pb-8">
+            <blockquote className="font-quran text-2xl text-center text-white leading-12">
+              رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ
+              عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ
+              وَأَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ
+            </blockquote>
+
+            <figcaption className="mt-5 flex items-center gap-2 text-xs text-white/70">
+              <span className="h-px w-4 bg-accent" aria-hidden="true" />
+              من دعاء سليمان عليه السلام · سورة النمل، الآية ١٩
+            </figcaption>
           </figure>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-9 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between">
           <p>© ٢٠٢٦ قريب. جميع الحقوق محفوظة.</p>
-          <p>صُنع بمحبة لخدمة الذكر.</p>
+          <p>نسأل الله أن يجعلنا وإياكم من الذاكرين له كثيرًا.</p>
         </div>
       </div>
     </footer>

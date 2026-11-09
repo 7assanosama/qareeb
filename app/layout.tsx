@@ -7,6 +7,7 @@ import {
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { InlineScript } from "@/components/layout/inline-script";
 import { InstallPrompt } from "@/components/pwa/install-prompt";
 import { OfflineIndicator } from "@/components/pwa/offline-indicator";
 import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
@@ -35,15 +36,21 @@ const quranFont = Amiri_Quran({
 const themeScript = `(function(){try{var t=localStorage.getItem("qareeb-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;var v=d?"dark":"light";document.documentElement.dataset.theme=v;document.documentElement.style.colorScheme=v;}catch(e){}})();`;
 
 const description =
-  "قريب منصة إسلامية هادئة للأذكار والقرآن والأدعية، تساعدك على الوصول إلى الذكر بسهولة وطمأنينة.";
+  "مساحتك في قريب للذكر والطمأنينة: أذكار وقرآن وأدعية في مكان واحد، بخط مريح وتصفح بسيط.";
 
 export const metadata: Metadata = {
   title: "قريب | للذكر والقرآن",
   description,
   applicationName: "قريب",
   icons: {
-    icon: "/icon.svg",
-    apple: "/icons/icon-180.png",
+    icon: [
+      {
+        url: "/icons/icon.svg",
+        type: "image/svg+xml",
+        sizes: "any",
+      },
+    ],
+    apple: "/icons/icon.svg",
   },
   keywords: ["قريب", "أذكار", "قرآن", "أدعية", "تسبيح"],
   openGraph: {
@@ -52,11 +59,11 @@ export const metadata: Metadata = {
     siteName: "قريب",
     title: "قريب | للذكر والقرآن",
     description,
-    url: "https://qareeb.app",
+    url: "https://qareeb.sifrmind.com",
   },
   alternates: {
-    canonical: "https://qareeb.app",
-    languages: { ar: "https://qareeb.app" },
+    canonical: "https://qareeb.sifrmind.com",
+    languages: { ar: "https://qareeb.sifrmind.com" },
   },
   robots: { index: true, follow: true },
 };
@@ -79,17 +86,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${headingFont.variable} ${bodyFont.variable} ${quranFont.variable} h-full antialiased`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <InlineScript html={themeScript} />
       </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-brand focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:inset-s-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-brand focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
         >
-          انتقل إلى المحتوى
+          انتقل إلى المحتوى الرئيسي
         </a>
         <Header />
-        <main id="main-content" className="flex-1">
+        <main
+          id="main-content"
+          className="flex-1 pb-[calc(5rem+env(safe-area-inset-bottom))]"
+        >
           {children}
         </main>
         <Footer />
@@ -100,10 +110,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "قريب",
-              url: "https://qareeb.app",
+              url: "https://qareeb.sifrmind.com",
               inLanguage: "ar",
               description:
-                "منصة إسلامية هادئة للأذكار والقرآن والأدعية.",
+                "أذكار وقرآن وأدعية في مكان واحد، بخط مريح وتصفح بسيط.",
             }),
           }}
         />

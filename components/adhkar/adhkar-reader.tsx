@@ -131,14 +131,16 @@ export function AdhkarReader({ section }: Props) {
 
   if (!hydrated) {
     return (
-      <div className="container-page py-16 text-center text-muted">جارٍ التحميل...</div>
+      <div className="container-page py-16 text-center text-muted">
+        لحظة، نجهّز لك الأذكار…
+      </div>
     );
   }
 
   if (total === 0) {
     return (
       <div className="container-page py-16 text-center text-muted">
-        لا توجد أذكار في هذا القسم.
+        لا توجد أذكار في هذا القسم بعد. جرّب قسمًا آخر.
       </div>
     );
   }
@@ -155,7 +157,7 @@ export function AdhkarReader({ section }: Props) {
               أتممت {section.title}
             </h2>
             <p className="mt-3 text-sm leading-7 text-muted">
-              تقبّل الله منك. يمكنك إعادة القسم متى شئت.
+              تقبّل الله منك. يمكنك إعادته متى شئت.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <button
@@ -164,13 +166,13 @@ export function AdhkarReader({ section }: Props) {
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-white shadow-soft transition-colors hover:bg-primary-strong"
               >
                 <Icon name="reset" className="size-4" />
-                إعادة
+                ابدأ من جديد
               </button>
               <Link
                 href="/"
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-line px-6 text-sm font-medium text-muted transition-colors hover:border-line-strong hover:text-foreground"
               >
-                العودة للرئيسية
+                العودة إلى الرئيسية
               </Link>
             </div>
           </div>
@@ -188,12 +190,12 @@ export function AdhkarReader({ section }: Props) {
             className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
           >
             <Icon name="arrow-left" className="size-4" />
-            العودة
+            العودة إلى الرئيسية
           </Link>
 
           <div className="mt-6">
             <SectionHeading
-              eyebrow="قارئ الأذكار"
+              eyebrow="أذكارك"
               title={section.title}
               description={section.description}
             />
@@ -205,7 +207,7 @@ export function AdhkarReader({ section }: Props) {
               <span>
                 الذكر {toArabicDigits(index + 1)} من {toArabicDigits(total)}
               </span>
-              <span>{Math.round(progressPercent)}%</span>
+              <span>{toArabicDigits(Math.round(progressPercent))}%</span>
             </div>
             <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-line">
               <div
@@ -220,7 +222,7 @@ export function AdhkarReader({ section }: Props) {
             <div className="flex items-center justify-between gap-3">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary-soft px-3 py-1 text-xs font-medium text-primary-ink">
                 <Icon name="sparkle" className="size-3.5" />
-                {toArabicDigits(current.repeat)}×
+                ×{toArabicDigits(current.repeat)}
               </span>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted">
@@ -230,7 +232,7 @@ export function AdhkarReader({ section }: Props) {
                       ? "حسن"
                       : current.source.grade === "quran"
                         ? "قرآن"
-                        : "عام"}
+                        : "أخرى"}
                 </span>
                 <button
                   type="button"
@@ -274,7 +276,7 @@ export function AdhkarReader({ section }: Props) {
                 type="button"
                 onClick={increment}
                 disabled={isDone}
-                aria-label="زيادة العداد"
+                aria-label="زد العداد"
                 className={cn(
                   "grid size-16 place-items-center rounded-full text-lg font-bold shadow-soft transition-[background-color,transform] duration-200 active:scale-95",
                   isDone
@@ -287,11 +289,13 @@ export function AdhkarReader({ section }: Props) {
               <div className="flex-1 text-sm text-muted">
                 {isDone ? (
                   <span className="font-medium text-primary-ink">
-                    أتممت هذا الذكر. انتقل للتالي.
+                    أحسنت. انتقل إلى الذكر التالي.
                   </span>
+                ) : count === 0 ? (
+                  <span>اقرأ الذكر، ثم اضغط العداد مع كل مرة.</span>
                 ) : (
                   <span>
-                    تبقّى {toArabicDigits(target - count)} من{" "}
+                    أنجزت {toArabicDigits(count)} من{" "}
                     {toArabicDigits(target)}
                   </span>
                 )}
@@ -300,7 +304,7 @@ export function AdhkarReader({ section }: Props) {
                 type="button"
                 onClick={reset}
                 className="grid size-10 place-items-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-foreground"
-                aria-label="إعادة العداد"
+                aria-label="أعد العداد من الصفر"
               >
                 <Icon name="reset" className="size-4" />
               </button>
@@ -316,7 +320,7 @@ export function AdhkarReader({ section }: Props) {
               className="inline-flex h-11 items-center gap-2 rounded-full border border-line px-5 text-sm font-medium text-muted transition-colors hover:border-line-strong hover:text-foreground disabled:pointer-events-none disabled:opacity-40"
             >
               <Icon name="arrow-left" className="size-4 rotate-180" />
-              السابق
+              الذكر السابق
             </button>
             {isDone && index < total - 1 ? (
               <button
@@ -324,7 +328,7 @@ export function AdhkarReader({ section }: Props) {
                 onClick={goNext}
                 className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-white shadow-soft transition-colors hover:bg-primary-strong"
               >
-                التالي
+                الذكر التالي
                 <Icon name="arrow-left" className="size-4" />
               </button>
             ) : (
@@ -334,7 +338,7 @@ export function AdhkarReader({ section }: Props) {
                 disabled={index === total - 1}
                 className="inline-flex h-11 items-center gap-2 rounded-full border border-line px-5 text-sm font-medium text-muted transition-colors hover:border-line-strong hover:text-foreground disabled:pointer-events-none disabled:opacity-40"
               >
-                التالي
+                الذكر التالي
                 <Icon name="arrow-left" className="size-4" />
               </button>
             )}

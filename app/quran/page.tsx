@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export const metadata: Metadata = {
   title: "القرآن الكريم | قريب",
-  description: "فهرس سور القرآن الكريم (١١٤ سورة) للقراءة بخط عثماني.",
+  description: "تصفّح سور القرآن الكريم كاملة، واقرأ بخط عثماني مريح للعين.",
 };
 
 export default function QuranIndexPage() {
@@ -14,8 +14,8 @@ export default function QuranIndexPage() {
       <div className="container-page">
         <SectionHeading
           eyebrow="القرآن الكريم"
-          title="فهرس السور"
-          description="١١٤ سورة. ابحث واختر سورة للقراءة."
+          title="سور القرآن"
+          description="اختر سورة واقرأها على مهل. يمكنك البحث باسمها أو رقمها."
         />
         <div className="mt-8">
           <SurahIndex surahs={quran.surahs} />

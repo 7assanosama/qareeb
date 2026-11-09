@@ -1,5 +1,5 @@
 /* Qareeb Service Worker */
-const CACHE_VERSION = "qareeb-v1";
+const CACHE_VERSION = "qareeb-v2";
 const SHELL_CACHE = "qareeb-shell-" + CACHE_VERSION;
 const RUNTIME_CACHE = "qareeb-runtime-" + CACHE_VERSION;
 
@@ -91,14 +91,16 @@ self.addEventListener("fetch", (event) => {
   if (isStaticAsset) {
     event.respondWith(
       (async () => {
-        const cached = await caches.match(request);
-        if (cached) return cached;
         try {
+          // Network-first so a stale cached bundle can never be served after
+          // a deployment or a development rebuild.
           const networkResponse = await fetch(request);
           const cache = await caches.open(RUNTIME_CACHE);
           cache.put(request, networkResponse.clone());
           return networkResponse;
         } catch {
+          const cached = await caches.match(request);
+          if (cached) return cached;
           return new Response("", { status: 504 });
         }
       })(),

@@ -15,7 +15,8 @@ export async function generateMetadata({
   if (!section) return {};
   return {
     title: `${section.title} | قريب`,
-    description: section.description ?? "أذكار مأثورة من الكتاب والسنة.",
+    description:
+      section.description ?? "أذكار ثابتة من الكتاب والسنة، مع عداد يحفظ تقدمك.",
   };
 }
 

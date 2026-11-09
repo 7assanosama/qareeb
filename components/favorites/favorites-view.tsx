@@ -7,6 +7,7 @@ import { loadState, saveState } from "@/lib/storage";
 import { adhkarSections } from "@/lib/content/adhkar";
 import { hisnCategories } from "@/lib/content/hisn";
 import type { Dhikr } from "@/lib/types/content";
+import { formatSavedDhikrCount, toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
 
 function buildIndex(): Map<string, { item: Dhikr; sectionId: string; sectionTitle: string }> {
@@ -47,7 +48,11 @@ export function FavoritesView() {
   }
 
   if (!hydrated) {
-    return <div className="container-page py-16 text-center text-muted">جارٍ التحميل...</div>;
+    return (
+      <div className="container-page py-16 text-center text-muted">
+        لحظة، نفتح لك مفضلتك…
+      </div>
+    );
   }
 
   const resolved = ids
@@ -63,16 +68,16 @@ export function FavoritesView() {
               <Icon name="sparkle" className="size-5" />
             </span>
             <h2 className="mt-4 font-display text-2xl font-bold">
-              لا توجد مفضلات بعد
+              لم تحفظ شيئًا بعد
             </h2>
             <p className="mt-2 text-sm leading-7 text-muted">
-              افتح أي قسم أذكار وأضف ذكراً للمفضلة.
+              إذا أعجبك ذكر وأردت العودة إليه، اضغط أيقونة الحفظ وسيظهر هنا.
             </p>
             <Link
               href="/adhkar"
               className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-white shadow-soft transition-colors hover:bg-primary-strong"
             >
-              تصفح الأذكار
+              تصفّح الأذكار
             </Link>
           </div>
         </div>
@@ -86,7 +91,7 @@ export function FavoritesView() {
         <div className="mx-auto max-w-2xl">
           <h1 className="font-display text-3xl font-bold sm:text-4xl">المفضلة</h1>
           <p className="mt-2 text-sm text-muted">
-            {resolved.length} ذكر محفوظ
+            في مفضلتك {formatSavedDhikrCount(resolved.length)}
           </p>
 
           <ul className="mt-8 space-y-4">
@@ -109,7 +114,7 @@ export function FavoritesView() {
                   </button>
                 </div>
                 <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-muted">
-                  <span>×{item.repeat}</span>
+                  <span>×{toArabicDigits(item.repeat)}</span>
                   <span>·</span>
                   <Link
                     href={`/adhkar/${sectionId}`}

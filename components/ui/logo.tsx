@@ -8,7 +8,6 @@ type LogoProps = {
 
 export function Logo({
   variant = "default",
-  showTagline = true,
   className,
 }: LogoProps) {
   return (
@@ -40,21 +39,10 @@ export function Logo({
             strokeLinecap="round"
             opacity="0.65"
           />
-          <circle cx="24" cy="10" r="1.8" fill="var(--accent)" />
         </svg>
       </span>
       <span className="flex flex-col leading-none">
-        <span className="font-display text-xl font-bold">قريب</span>
-        {showTagline ? (
-          <span
-            className={cn(
-              "mt-1 text-[11px] font-medium",
-              variant === "onDark" ? "text-white/60" : "text-muted",
-            )}
-          >
-            للذكر والقرآن
-          </span>
-        ) : null}
+        <span className="font-display font-bold">قريب</span>
       </span>
     </span>
   );

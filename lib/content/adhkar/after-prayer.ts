@@ -3,7 +3,7 @@ import type { DhikrSection } from "@/lib/types/content";
 export const afterPrayer: DhikrSection = {
   id: "after-prayer",
   title: "أذكار ما بعد الصلاة",
-  description: "أذكار ثابتة تُقال بعد الفريضة قبل الانصراف.",
+  description: "أذكار تقال بعد الفريضة، لتختم صلاتك بذكر الله.",
   items: [
     {
       id: "after-prayer-istighfar-3",

@@ -3,7 +3,7 @@ import type { DhikrSection } from "@/lib/types/content";
 export const waking: DhikrSection = {
   id: "waking",
   title: "أذكار الاستيقاظ",
-  description: "أذكار تُقال عند الاستيقاظ من النوم.",
+  description: "أول ما تستيقظ، احمد الله وابدأ يومك بذكره.",
   items: [
     {
       id: "waking-alhamd",

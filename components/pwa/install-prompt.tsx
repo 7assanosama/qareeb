@@ -48,7 +48,7 @@ export function InstallPrompt() {
   return (
     <div className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-md rounded-2xl border border-line bg-surface p-4 shadow-lift sm:inset-x-auto sm:start-4">
       <p className="text-sm text-foreground">
-        يمكنك تثبيت «قريب» على جهازك لاستخدامه كتطبيق.
+        ثبّت «قريب» على جهازك، وافتحه بضغطة واحدة متى شئت.
       </p>
       <div className="mt-3 flex items-center gap-2">
         <button
@@ -63,7 +63,7 @@ export function InstallPrompt() {
           onClick={dismiss}
           className="rounded-full border border-line px-4 py-1.5 text-xs font-medium text-muted transition-colors hover:border-line-strong hover:text-foreground"
         >
-          لاحقاً
+          ليس الآن
         </button>
       </div>
     </div>

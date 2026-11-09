@@ -23,7 +23,7 @@ export function OfflineIndicator() {
 
   return (
     <div className="fixed inset-x-0 top-0 z-[60] bg-accent px-4 py-2 text-center text-xs font-medium text-white shadow-soft">
-      أنت غير متصل بالإنترنت — يتم عرض المحتوى المحفوظ محلياً.
+      لا يوجد اتصال الآن. المحتوى المحفوظ على جهازك لا يزال متاحًا.
     </div>
   );
 }

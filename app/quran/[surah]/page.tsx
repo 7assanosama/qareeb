@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getSurah, quran } from "@/lib/content";
+import { toArabicDigits } from "@/lib/utils";
 import { QuranReader } from "@/components/quran/quran-reader";
 
 type Params = { surah: string };
@@ -15,8 +16,8 @@ export async function generateMetadata({
   const surah = getSurah(number);
   if (!surah) return {};
   return {
-    title: `سورة ${surah.name} | قريب`,
-    description: `قراءة سورة ${surah.name} (${surah.ayahCount} آية) بالرسم العثماني.`,
+    title: `${surah.name} | قريب`,
+    description: `اقرأ ${surah.name} كاملة (${toArabicDigits(surah.ayahCount)} آية) بخط عثماني واضح.`,
   };
 }
 

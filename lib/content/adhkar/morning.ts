@@ -3,7 +3,7 @@ import type { DhikrSection } from "@/lib/types/content";
 export const morning: DhikrSection = {
   id: "morning",
   title: "أذكار الصباح",
-  description: "أذكار تُقال من طلوع الفجر إلى الضحى.",
+  description: "من طلوع الفجر إلى الضحى، أذكار تفتح بها يومك.",
   items: [
     {
       id: "morning-ayat-kursi",

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { loadState, saveState } from "@/lib/storage";
 import type { QuranSurah } from "@/lib/types/content";
+import { toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
 
 type Props = {
@@ -58,7 +59,7 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               <Icon name="arrow-left" className="size-4" />
-              فهرس السور
+              العودة إلى قائمة السور
             </Link>
 
             <div className="flex items-center gap-2">
@@ -83,13 +84,13 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
 
           <header className="mt-6 text-center">
             <p className="text-sm font-semibold text-primary-ink">
-              سورة {surah.name}
+              القرآن الكريم
             </p>
             <h1 className="mt-2 font-display text-3xl font-bold sm:text-4xl">
               {surah.name}
             </h1>
             <p className="mt-2 text-xs text-muted">
-              {surah.ayahCount} آية ·{" "}
+              {toArabicDigits(surah.ayahCount)} آية ·{" "}
               {surah.revelationType === "Meccan" ? "مكية" : "مدنية"}
             </p>
           </header>
@@ -106,7 +107,7 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
                 <span key={ayah.number} className="inline">
                   {ayah.text}
                   <span className="mx-1 inline-flex size-6 items-center justify-center rounded-full bg-primary-soft text-[0.6em] font-semibold text-primary-ink align-middle">
-                    {ayah.number}
+                    {toArabicDigits(ayah.number)}
                   </span>{" "}
                 </span>
               ))}

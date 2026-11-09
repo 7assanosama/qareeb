@@ -3,7 +3,7 @@ import type { DhikrSection } from "@/lib/types/content";
 export const sleep: DhikrSection = {
   id: "sleep",
   title: "أذكار النوم",
-  description: "أذكار تُقال قبل النوم.",
+  description: "قبل أن تنام، اذكر الله ونم بقلب مطمئن.",
   items: [
     {
       id: "sleep-bismika",

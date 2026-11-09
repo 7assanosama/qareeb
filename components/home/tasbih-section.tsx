@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { loadState, saveState } from "@/lib/storage";
-import { cn, toArabicDigits } from "@/lib/utils";
+import { cn, formatTasbihRemaining, toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -35,6 +35,7 @@ export function TasbihSection() {
 
   function increment() {
     setCount((current) => Math.min(current + 1, target));
+
     if (typeof navigator !== "undefined" && "vibrate" in navigator) {
       try {
         navigator.vibrate(8);
@@ -58,18 +59,15 @@ export function TasbihSection() {
       id="tasbih"
       className="relative overflow-hidden py-16 sm:py-20 lg:py-24"
     >
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden="true"
-      >
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute left-1/2 top-1/2 size-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-soft/50 blur-3xl dark:bg-primary-soft/30" />
       </div>
 
       <div className="container-page relative">
         <SectionHeading
-          eyebrow="ذكر وطمأنينة"
-          title="عداد التسبيح"
-          description="اضغط على الدائرة مع كل تسبيحة، ودع الحلقة تنمو حتى تكتمل."
+          eyebrow="لحظات مع الله"
+          title="لا تنسَ ذكر الله"
+          description="اجعل لسانك رطبًا بذكر الله، وابدأ تسبيحك خطوة بخطوة."
         />
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
@@ -78,6 +76,7 @@ export function TasbihSection() {
               key={option}
               type="button"
               onClick={() => changeTarget(option)}
+              aria-pressed={target === option}
               className={cn(
                 "rounded-full border px-4 py-1.5 text-xs font-medium transition-colors",
                 target === option
@@ -106,23 +105,25 @@ export function TasbihSection() {
               <p className="mt-5 font-display text-3xl font-bold sm:text-4xl">
                 سُبْحَانَ اللهِ
               </p>
+
               <p className="mt-4 max-w-md text-[15px] leading-8 text-muted">
-                حلقة هادئة تعدّ معك حتى {toArabicDigits(target)} تسبيحة، ثم تُغلق
-                بلون ذهبي خفيف احتفاءً بالتمام.
+                اختر عدد التسبيحات، وابدأ على مهل. كل ضغطة تقرّبك من إتمام وردك.
               </p>
 
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
                   onClick={increment}
-                  className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-white shadow-soft transition-[background-color,box-shadow,transform] duration-200 hover:bg-primary-strong hover:shadow-lift active:scale-[0.98]"
+                  disabled={isComplete}
+                  className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-white shadow-soft transition-[background-color,box-shadow,transform] duration-200 hover:bg-primary-strong hover:shadow-lift active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
                 >
                   <Icon
                     name="plus"
                     className="size-4 transition-transform duration-200 group-hover:rotate-90"
                   />
-                  تسبيح
+                  سبّح الآن
                 </button>
+
                 <button
                   type="button"
                   onClick={reset}
@@ -130,7 +131,7 @@ export function TasbihSection() {
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-line px-5 text-sm font-medium text-muted transition-colors duration-200 hover:border-line-strong hover:text-foreground disabled:pointer-events-none disabled:opacity-40"
                 >
                   <Icon name="reset" className="size-4" />
-                  إعادة
+                  ابدأ من جديد
                 </button>
               </div>
 
@@ -139,8 +140,8 @@ export function TasbihSection() {
                 className="mt-5 min-h-6 text-sm font-medium text-muted"
               >
                 {isComplete
-                  ? `أتممت ${toArabicDigits(target)} تسبيحة. تقبّل الله.`
-                  : `تبقّى ${toArabicDigits(target - count)} تسبيحة`}
+                  ? `أتممت ${toArabicDigits(target)} تسبيحة، تقبّل الله منك.`
+                  : formatTasbihRemaining(target - count)}
               </p>
             </div>
 
@@ -148,12 +149,13 @@ export function TasbihSection() {
               <button
                 type="button"
                 onClick={increment}
+                disabled={isComplete}
                 aria-label={
                   isComplete
                     ? `أتممت ${toArabicDigits(target)} تسبيحة`
                     : `أضف تسبيحة، العدد الحالي ${toArabicDigits(count)} من ${toArabicDigits(target)}`
                 }
-                className="group relative grid size-60 place-items-center rounded-full transition-transform duration-200 active:scale-[0.98] sm:size-64"
+                className="group relative grid size-60 place-items-center rounded-full transition-transform duration-200 active:scale-[0.98] disabled:cursor-default sm:size-64"
               >
                 <svg
                   viewBox="0 0 200 200"
@@ -172,6 +174,7 @@ export function TasbihSection() {
                       <stop offset="100%" stopColor="var(--accent)" />
                     </linearGradient>
                   </defs>
+
                   <circle
                     cx="100"
                     cy="100"
@@ -180,6 +183,7 @@ export function TasbihSection() {
                     stroke="var(--line)"
                     strokeWidth="5"
                   />
+
                   <circle
                     cx="100"
                     cy="100"
@@ -209,9 +213,11 @@ export function TasbihSection() {
                   <span className="font-display text-6xl font-bold leading-none">
                     {toArabicDigits(count)}
                   </span>
+
                   <span className="mt-3 text-xs text-muted">
                     من {toArabicDigits(target)} تسبيحة
                   </span>
+
                   <span
                     className={cn(
                       "mt-2 inline-flex items-center gap-1 text-[11px]",
@@ -221,10 +227,10 @@ export function TasbihSection() {
                     {isComplete ? (
                       <>
                         <Icon name="check" className="size-3" />
-                        تمّت
+                        اكتمل العدد
                       </>
                     ) : (
-                      "اضغط للعدّ"
+                      "اضغط للذكر"
                     )}
                   </span>
                 </span>
