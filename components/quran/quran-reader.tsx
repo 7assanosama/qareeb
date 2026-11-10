@@ -9,6 +9,8 @@ import { toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
 import { QuranText } from "@/components/quran/quran-text";
 
+const BASMALA = "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ";
+
 type Props = {
   surah: QuranSurah;
   prevSurah: number | null;
@@ -51,6 +53,12 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
   function decreaseFont() {
     setFontSize((size) => Math.max(FONT_MIN, size - FONT_STEP));
   }
+
+  const firstAyahText = surah.ayahs[0]?.text?.trim() ?? "";
+  const showBasmala =
+    surah.number !== 1 &&
+    surah.number !== 9 &&
+    !firstAyahText.startsWith("بِسۡمِ");
 
   return (
     <section className="py-10 sm:py-14">
@@ -107,6 +115,15 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
           </header>
 
           <article className="mt-8 rounded-5xl border border-line bg-surface p-6 shadow-soft sm:p-8">
+            {showBasmala ? (
+              <p
+                dir="rtl"
+                className="font-quran quran-font text-center leading-[2.5] [word-spacing:0.05em] mb-6"
+                style={{ fontSize: `${fontSize}px` }}
+              >
+                {BASMALA}
+              </p>
+            ) : null}
             <QuranText ayahs={surah.ayahs} fontSize={fontSize} />
           </article>
 
