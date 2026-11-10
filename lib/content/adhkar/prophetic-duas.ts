@@ -11,7 +11,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "مسند أحمد",
-        reference: "رقم ٣٧٠٤",
+        reference: "رقم 3704",
         grade: "hasan",
       },
       explanation: "دعاء كرب وهم (صححه الألباني في صحيح الجامع).",
@@ -23,7 +23,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح البخاري",
-        reference: "رقم ١١٦٢",
+        reference: "رقم 1162",
         grade: "sahih",
       },
       explanation: "صلاة الاستخارة: يصلي ركعتين ثم يقول هذا الدعاء.",
@@ -35,7 +35,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٧١٣",
+        reference: "رقم 713",
         grade: "sahih",
       },
       order: 3,
@@ -46,7 +46,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٧١٣",
+        reference: "رقم 713",
         grade: "sahih",
       },
       order: 4,
@@ -57,7 +57,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ١٣٤٢",
+        reference: "رقم 1342",
         grade: "sahih",
       },
       order: 5,
@@ -68,7 +68,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح البخاري",
-        reference: "رقم ١٠٣٢",
+        reference: "رقم 1032",
         grade: "sahih",
       },
       explanation: "يُقال عند نزول المطر.",
@@ -80,7 +80,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح البخاري",
-        reference: "رقم ٦٢٢٤",
+        reference: "رقم 6224",
         grade: "sahih",
       },
       explanation: "يقولها العاطس, ويُقال له: يَرْحَمُكَ اللَّهُ, فيرد: يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ.",
@@ -92,7 +92,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "سنن أبي داود, سنن الترمذي",
-        reference: "أبو داود ٣٨٥٠, الترمذي ٣٤٥٦",
+        reference: "أبو داود 3850, الترمذي 3456",
         grade: "hasan",
       },
       order: 8,
@@ -103,7 +103,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "مسند أحمد",
-        reference: "رقم ١٥١٨٣",
+        reference: "رقم 15183",
         grade: "hasan",
       },
       order: 9,
@@ -114,7 +114,7 @@ export const propheticDuas: DhikrSection = {
       repeat: 1,
       source: {
         source: "سنن أبي داود, سنن الترمذي, سنن النسائي",
-        reference: "أبو داود ١٤٢٥",
+        reference: "أبو داود 1425",
         grade: "sahih",
       },
       explanation: "دعاء قنوت (الوتر).",

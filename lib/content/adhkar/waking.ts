@@ -11,7 +11,7 @@ export const waking: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح البخاري",
-        reference: "رقم ٦٣١٢",
+        reference: "رقم 6312",
         grade: "sahih",
       },
       order: 1,
@@ -22,7 +22,7 @@ export const waking: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح البخاري",
-        reference: "رقم ١١٥٤",
+        reference: "رقم 1154",
         grade: "sahih",
       },
       order: 2,
@@ -33,7 +33,7 @@ export const waking: DhikrSection = {
       repeat: 1,
       source: {
         source: "سنن الترمذي",
-        reference: "رقم ٣٤٠١",
+        reference: "رقم 3401",
         grade: "hasan",
       },
       order: 3,

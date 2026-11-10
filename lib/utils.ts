@@ -15,8 +15,12 @@ export function toArabicDigits(value: number | string): string {
   );
 }
 
-// اسم بديل للتوافق مع الشيفرة الحالية.
-export const toArabicIndicDigits = toArabicDigits;
+// علامات أرقام الآيات (KFGQPC) — للاستخدام داخل قارئ القرآن فقط.
+export function toArabicIndicDigits(value: number | string): string {
+  return toArabicDigits(value);
+}
+
+export const toAyahNumber = toArabicIndicDigits;
 
 export function formatDhikrCount(count: number): string {
   if (count === 1) return "ذكر واحد";

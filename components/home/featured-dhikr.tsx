@@ -1,6 +1,7 @@
 import { afterPrayer } from "@/lib/content";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
+import { toArabicDigits } from "@/lib/utils";
 
 export function FeaturedDhikrCard() {
   return (
@@ -37,7 +38,7 @@ export function FeaturedDhikrCard() {
               >
                 <span className="leading-7">{item.text}</span>
                 <span className="shrink-0 rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white/70">
-                  ×{item.repeat}
+                  ×{toArabicDigits(item.repeat)}
                 </span>
               </li>
             ))}

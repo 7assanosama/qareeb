@@ -10,8 +10,8 @@ export const evening: DhikrSection = {
       text: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
       repeat: 1,
       source: {
-        source: "القرآن الكريم — سورة البقرة, الآية ٢٥٥",
-        reference: "البقرة ٢٥٥",
+        source: "القرآن الكريم — سورة البقرة, الآية 255",
+        reference: "البقرة 255",
         grade: "quran",
       },
       order: 1,
@@ -22,7 +22,7 @@ export const evening: DhikrSection = {
       repeat: 3,
       source: {
         source: "القرآن الكريم — سورة الإخلاص",
-        reference: "الإخلاص ١-٤",
+        reference: "الإخلاص 1-4",
         grade: "quran",
       },
       order: 2,
@@ -33,7 +33,7 @@ export const evening: DhikrSection = {
       repeat: 3,
       source: {
         source: "القرآن الكريم — سورة الفلق",
-        reference: "الفلق ١-٥",
+        reference: "الفلق 1-5",
         grade: "quran",
       },
       order: 3,
@@ -44,7 +44,7 @@ export const evening: DhikrSection = {
       repeat: 3,
       source: {
         source: "القرآن الكريم — سورة الناس",
-        reference: "الناس ١-٦",
+        reference: "الناس 1-6",
         grade: "quran",
       },
       order: 4,
@@ -55,7 +55,7 @@ export const evening: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٢٧٢٣",
+        reference: "رقم 2723",
         grade: "sahih",
       },
       order: 5,
@@ -66,7 +66,7 @@ export const evening: DhikrSection = {
       repeat: 3,
       source: {
         source: "سنن أبي داود, سنن الترمذي, سنن ابن ماجه",
-        reference: "أبو داود ٥٠٨٨, الترمذي ٣٣٨٨",
+        reference: "أبو داود 5088, الترمذي 3388",
         grade: "sahih",
       },
       order: 6,
@@ -77,7 +77,7 @@ export const evening: DhikrSection = {
       repeat: 1,
       source: {
         source: "سنن أبي داود",
-        reference: "رقم ٥٠٧٣",
+        reference: "رقم 5073",
         grade: "hasan",
       },
       order: 7,
@@ -88,7 +88,7 @@ export const evening: DhikrSection = {
       repeat: 100,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٢٦٩١",
+        reference: "رقم 2691",
         grade: "sahih",
       },
       order: 8,
@@ -99,7 +99,7 @@ export const evening: DhikrSection = {
       repeat: 100,
       source: {
         source: "صحيح البخاري, صحيح مسلم",
-        reference: "البخاري ٣٢٩٣, مسلم ٢٦٩١",
+        reference: "البخاري 3293, مسلم 2691",
         grade: "sahih",
       },
       order: 9,
@@ -110,7 +110,7 @@ export const evening: DhikrSection = {
       repeat: 3,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٢٧٠٨",
+        reference: "رقم 2708",
         grade: "sahih",
       },
       order: 10,

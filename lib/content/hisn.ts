@@ -12,7 +12,7 @@ export const hisnCategories: readonly HisnCategory[] = [
         repeat: 1,
         source: {
           source: "حصن المسلم — عن أبي داود والترمذي",
-          reference: "أبو داود ٥٠٧١",
+          reference: "أبو داود 5071",
           grade: "hasan",
         },
         order: 1,
@@ -23,7 +23,7 @@ export const hisnCategories: readonly HisnCategory[] = [
         repeat: 1,
         source: {
           source: "حصن المسلم — عن أبي داود والترمذي",
-          reference: "أبو داود ٥٠٧١",
+          reference: "أبو داود 5071",
           grade: "hasan",
         },
         order: 2,
@@ -41,7 +41,7 @@ export const hisnCategories: readonly HisnCategory[] = [
         repeat: 1,
         source: {
           source: "حصن المسلم — عن البخاري ومسلم",
-          reference: "البخاري ٢٤٧, مسلم ٢٧١٤",
+          reference: "البخاري 247, مسلم 2714",
           grade: "sahih",
         },
         order: 1,
@@ -59,7 +59,7 @@ export const hisnCategories: readonly HisnCategory[] = [
         repeat: 1,
         source: {
           source: "حصن المسلم — عن البخاري ومسلم",
-          reference: "البخاري ٦٣٤٥, مسلم ٢٧٣٠",
+          reference: "البخاري 6345, مسلم 2730",
           grade: "sahih",
         },
         order: 1,
@@ -70,7 +70,7 @@ export const hisnCategories: readonly HisnCategory[] = [
         repeat: 1,
         source: {
           source: "حصن المسلم — عن أبي داود",
-          reference: "أبو داود ٥٠٩٠",
+          reference: "أبو داود 5090",
           grade: "hasan",
         },
         order: 2,
@@ -88,7 +88,7 @@ export const hisnCategories: readonly HisnCategory[] = [
         repeat: 1,
         source: {
           source: "حصن المسلم — عن أبي داود",
-          reference: "أبو داود ٤٦٦",
+          reference: "أبو داود 466",
           grade: "sahih",
         },
         explanation: "يُقال عند دخول المسجد.",

@@ -22,7 +22,7 @@ export const afterPrayer: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٥٩١",
+        reference: "رقم 591",
         grade: "sahih",
       },
       order: 2,
@@ -33,7 +33,7 @@ export const afterPrayer: DhikrSection = {
       repeat: 33,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٥٩٧",
+        reference: "رقم 597",
         grade: "sahih",
       },
       explanation: "يُقال بعد كل فريضة.",
@@ -45,7 +45,7 @@ export const afterPrayer: DhikrSection = {
       repeat: 33,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٥٩٧",
+        reference: "رقم 597",
         grade: "sahih",
       },
       order: 4,
@@ -56,7 +56,7 @@ export const afterPrayer: DhikrSection = {
       repeat: 33,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٥٩٧",
+        reference: "رقم 597",
         grade: "sahih",
       },
       order: 5,
@@ -67,7 +67,7 @@ export const afterPrayer: DhikrSection = {
       repeat: 1,
       source: {
         source: "صحيح مسلم",
-        reference: "رقم ٥٩٧",
+        reference: "رقم 597",
         grade: "sahih",
       },
       explanation: "تمام المائة (٣٣ + ٣٣ + ٣٣ + ١).",
@@ -78,8 +78,8 @@ export const afterPrayer: DhikrSection = {
       text: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
       repeat: 1,
       source: {
-        source: "القرآن الكريم — سورة البقرة, الآية ٢٥٥",
-        reference: "البقرة ٢٥٥",
+        source: "القرآن الكريم — سورة البقرة, الآية 255",
+        reference: "البقرة 255",
         grade: "quran",
       },
       explanation: "من قرأ آية الكرسي دبر كل صلاة لم يمنعه من دخول الجنة إلا الموت (النسائي, صححه الألباني).",

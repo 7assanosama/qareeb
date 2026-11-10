@@ -16,16 +16,16 @@ type Props = {
 };
 
 const FONT_MIN = 14;
-const FONT_MAX = 48;
+const FONT_MAX = 64;
 const FONT_STEP = 2;
 
 export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
-  const [fontSize, setFontSize] = useState(18);
+  const [fontSize, setFontSize] = useState(24);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     const state = loadState();
-    setFontSize(state.quranProgress.fontSize || 18);
+    setFontSize(state.quranProgress.fontSize || 24);
     setHydrated(true);
   }, []);
 
@@ -74,9 +74,10 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
                 title="تصغير الخط"
                 className="grid size-9 place-items-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-foreground"
               >
-                <span className="text-sm font-bold">أ-</span>
+                <span className="text-lg font-bold">-</span>
               </button>
-
+              حجم الخط:{" "}
+              <span className="font-semibold">{toArabicDigits(fontSize)}</span>
               <button
                 type="button"
                 disabled={fontSize >= FONT_MAX}
@@ -85,7 +86,7 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
                 title="تكبير الخط"
                 className="grid size-9 place-items-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-foreground"
               >
-                <span className="text-sm font-bold">أ+</span>
+                <span className="text-lg font-bold">+</span>
               </button>
             </div>
           </div>

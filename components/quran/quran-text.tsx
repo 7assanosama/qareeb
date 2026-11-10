@@ -2,7 +2,7 @@
 
 import React from "react";
 import type { QuranAyah } from "@/lib/types/content";
-import { cn, toArabicIndicDigits } from "@/lib/utils";
+import { cn, toAyahNumber } from "@/lib/utils";
 
 type Props = {
   /**
@@ -41,10 +41,10 @@ export function QuranText({ ayahs, fontSize = 18, className }: Props) {
           <span className="inline">{ayah.text}</span>
           <span
             className="inline-flex items-center text-[0.7em] text-primary-ink mx-[0.3em] whitespace-nowrap leading-none px-1.5"
-            aria-label={`رقم الآية ${toArabicIndicDigits(ayah.number)}`}
+            aria-label={`رقم الآية ${toAyahNumber(ayah.number)}`}
           >
             {/* الرقم وحده: الخط يركّبه في زخرفة علامة الآية كاملة */}
-            {toArabicIndicDigits(ayah.number)}
+            {toAyahNumber(ayah.number)}
           </span>
         </React.Fragment>
       ))}

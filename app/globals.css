@@ -79,9 +79,15 @@
   --shadow-lift: var(--elevation-lift);
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
-  --font-sans: var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
-  --font-display: var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
+  --font-sans: "Digits", var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
+  --font-display: "Digits", var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
   --font-quran: var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
+}
+
+@font-face {
+  font-family: "Digits";
+  src: local("Tahoma"), local("Segoe UI"), local("Arial");
+  unicode-range: U+0660-0669;
 }
 
 @layer base {
