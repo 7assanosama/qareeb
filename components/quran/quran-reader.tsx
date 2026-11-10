@@ -7,6 +7,7 @@ import { loadState, saveState } from "@/lib/storage";
 import type { QuranSurah } from "@/lib/types/content";
 import { toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
+import { QuranText } from "@/components/quran/quran-text";
 
 type Props = {
   surah: QuranSurah;
@@ -14,8 +15,8 @@ type Props = {
   nextSurah: number | null;
 };
 
-const FONT_MIN = 16;
-const FONT_MAX = 28;
+const FONT_MIN = 14;
+const FONT_MAX = 48;
 const FONT_STEP = 2;
 
 export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
@@ -30,7 +31,9 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
 
   useEffect(() => {
     if (!hydrated) return;
+
     const state = loadState();
+
     saveState({
       ...state,
       quranProgress: {
@@ -59,22 +62,27 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               <Icon name="arrow-left" className="size-4" />
-              العودة إلى قائمة السور
+              فهرس السور
             </Link>
 
             <div className="flex items-center gap-2">
               <button
                 type="button"
+                disabled={fontSize <= FONT_MIN}
                 onClick={decreaseFont}
-                aria-label="تصغير الخط"
+                aria-label="تصغير حجم الخط"
+                title="تصغير الخط"
                 className="grid size-9 place-items-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-foreground"
               >
                 <span className="text-sm font-bold">أ-</span>
               </button>
+
               <button
                 type="button"
+                disabled={fontSize >= FONT_MAX}
                 onClick={increaseFont}
-                aria-label="تكبير الخط"
+                aria-label="تكبير حجم الخط"
+                title="تكبير الخط"
                 className="grid size-9 place-items-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-foreground"
               >
                 <span className="text-sm font-bold">أ+</span>
@@ -84,34 +92,21 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
 
           <header className="mt-6 text-center">
             <p className="text-sm font-semibold text-primary-ink">
-              القرآن الكريم
+              آيات من القرآن الكريم
             </p>
-            <h1 className="mt-2 font-display text-3xl font-bold sm:text-4xl">
+
+            <h1 className="mt-2 font-quran text-3xl font-bold sm:text-4xl">
               {surah.name}
             </h1>
+
             <p className="mt-2 text-xs text-muted">
               {toArabicDigits(surah.ayahCount)} آية ·{" "}
               {surah.revelationType === "Meccan" ? "مكية" : "مدنية"}
             </p>
           </header>
 
-          <article
-            className="mt-8 rounded-5xl border border-line bg-surface p-6 shadow-soft sm:p-8"
-            style={{ fontSize: `${fontSize}px` }}
-          >
-            <p
-              className="font-quran leading-[2.4] text-foreground"
-              dir="rtl"
-            >
-              {surah.ayahs.map((ayah) => (
-                <span key={ayah.number} className="inline">
-                  {ayah.text}
-                  <span className="mx-1 inline-flex size-6 items-center justify-center rounded-full bg-primary-soft text-[0.6em] font-semibold text-primary-ink align-middle">
-                    {toArabicDigits(ayah.number)}
-                  </span>{" "}
-                </span>
-              ))}
-            </p>
+          <article className="mt-8 rounded-5xl border border-line bg-surface p-6 shadow-soft sm:p-8">
+            <QuranText ayahs={surah.ayahs} fontSize={fontSize} />
           </article>
 
           <nav className="mt-8 flex items-center justify-between gap-3">
@@ -126,6 +121,7 @@ export function QuranReader({ surah, prevSurah, nextSurah }: Props) {
             ) : (
               <span />
             )}
+
             {nextSurah ? (
               <Link
                 href={`/quran/${nextSurah}`}

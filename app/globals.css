@@ -2,6 +2,14 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/*
+ * الخط القرآني الأصلي: KFGQPC Uthmanic Script HAFS.
+ * يُحمَّل ذاتيًا عبر next/font/local من app/fonts/uthmanic-hafs.otf
+ * (متغير --font-kfgqpc، مع تحميل مسبق وdisplay: swap).
+ * السلسلة: نسخة المشروع المستضافة أولًا، ثم نسخة الزائر المثبتة محليًا
+ * بالاسم الرسمي إن وُجدت، ثم الخط الاحتياطي النظامي.
+ */
+
 :root {
   --background: #f8f7f2;
   --surface: #ffffff;
@@ -71,9 +79,9 @@
   --shadow-lift: var(--elevation-lift);
   --radius-4xl: 2rem;
   --radius-5xl: 2.5rem;
-  --font-sans: var(--font-plex-arabic), system-ui, sans-serif;
-  --font-display: var(--font-alexandria), system-ui, sans-serif;
-  --font-quran: var(--font-amiri-quran), serif;
+  --font-sans: var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
+  --font-display: var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
+  --font-quran: var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
 }
 
 @layer base {
@@ -85,8 +93,16 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: var(--font-plex-arabic), system-ui, sans-serif;
+    font-family: var(--font-kfgqpc), "KFGQPC Uthmanic Script HAFS", serif;
     text-rendering: optimizeLegibility;
+  }
+
+  /* عناصر النماذج لا ترث font-family افتراضيًا في بعض المتصفحات */
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
   }
 
   section[id] {
@@ -153,5 +169,16 @@
     border-start-end-radius: 11rem;
     border-end-start-radius: 2rem;
     border-end-end-radius: 2rem;
+  }
+
+  /* خصائص OpenType للنص القرآني:
+     - "rlig" (الرباطات الإلزامية) و"kern" مفعّلان افتراضيًا في المتصفحات،
+       والإبقاء عليهما صراحةً لا يعطّل شيئًا.
+     - الخصائص غير المذكورة (ccmp وcalt وmark وmkmk وlocl) تبقى على
+       قيمها الافتراضية المفعّلة، وهي المسؤولة عن تركيب المحارف العربية
+       وتموضع التشكيل — لا نعطّلها ولا نفرض خصائص لا يدعمها الخط.
+     - لا نستخدم letter-spacing على النص القرآني لأنه يفكك اتصال الحروف. */
+  .quran-font {
+    font-feature-settings: "kern" 1, "rlig" 1;
   }
 }

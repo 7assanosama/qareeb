@@ -1,9 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import {
-  Alexandria,
-  Amiri_Quran,
-  IBM_Plex_Sans_Arabic,
-} from "next/font/google";
+import localFont from "next/font/local";
 import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -13,24 +9,22 @@ import { OfflineIndicator } from "@/components/pwa/offline-indicator";
 import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
 import "./globals.css";
 
-const headingFont = Alexandria({
-  variable: "--font-alexandria",
-  subsets: ["arabic", "latin"],
-  display: "swap",
-});
-
-const bodyFont = IBM_Plex_Sans_Arabic({
-  variable: "--font-plex-arabic",
-  subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const quranFont = Amiri_Quran({
-  variable: "--font-amiri-quran",
-  subsets: ["arabic"],
+/*
+ * KFGQPC Uthmanic Script HAFS (الإصدار 0.09) — الخط الأصلي لخط الرسم
+ * العثماني من مجمع الملك فهد لطباعة المصحف الشريف، مع جداول GSUB/GPOS
+ * كاملة (init/medi/fina/liga/calt وmark/mkmk/curs).
+ * الملف المرخص: app/fonts/uthmanic-hafs.otf (راجع app/fonts/README.md).
+ * next/font/local يقدّمه دون تعديل فيبقى التركيب الرسومي سليمًا، مع
+ * تحميل مسبق تلقائي وخط احتياطي مضبوط المقاييس لتقليل CLS.
+ * هذا الخط هو الخط الأساسي لجميع نصوص الموقع (عربي).
+ */
+const quranFont = localFont({
+  variable: "--font-kfgqpc",
+  src: "./fonts/uthmanic-hafs.otf",
   weight: "400",
+  style: "normal",
   display: "swap",
+  preload: true,
 });
 
 const themeScript = `(function(){try{var t=localStorage.getItem("qareeb-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;var v=d?"dark":"light";document.documentElement.dataset.theme=v;document.documentElement.style.colorScheme=v;}catch(e){}})();`;
@@ -83,7 +77,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       dir="rtl"
       data-theme="light"
       suppressHydrationWarning
-      className={`${headingFont.variable} ${bodyFont.variable} ${quranFont.variable} h-full antialiased`}
+      className={`${quranFont.variable} h-full antialiased`}
     >
       <head>
         <InlineScript html={themeScript} />
