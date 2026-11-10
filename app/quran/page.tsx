@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export const metadata: Metadata = {
   title: "القرآن الكريم | قريب",
-  description: "تصفّح سور القرآن الكريم كاملة، واقرأ بخط عثماني مريح للعين.",
+  description: "تصفّح سور القرآن الكريم كاملة, واقرأ بخط عثماني مريح للعين.",
 };
 
 export default function QuranIndexPage() {

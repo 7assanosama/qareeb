@@ -1,6 +1,6 @@
-import { getAyah, quran } from "@/lib/content";
-import { toArabicDigits } from "@/lib/utils";
+import { getAyah, quran } from "@/lib/content"; 
 import { Icon } from "@/components/ui/icon";
+import { toArabicDigits } from "@/lib/utils";
 import { ButtonLink } from "../ui/button-link";
 
 const totalAyahs = quran.surahs.reduce(
@@ -8,10 +8,7 @@ const totalAyahs = quran.surahs.reduce(
   0,
 );
 
-const facts = [
-  `${toArabicDigits(quran.surahs.length)} سورة`,
-  `${toArabicDigits(totalAyahs)} آية`,
-];
+const facts = [`${toArabicDigits(quran.surahs.length)} سورة`, `${toArabicDigits(totalAyahs)} آية`];
 
 export function QuranSection() {
   return (
@@ -38,7 +35,7 @@ export function QuranSection() {
               </h2>
 
               <p className="mt-3 max-w-xl text-[15px] leading-8 text-muted sm:text-base">
-                افتح المصحف، واقرأ آيات الله بتأنٍّ وتدبّر. مساحة تجمع لك سور
+                افتح المصحف, واقرأ آيات الله بتأنٍّ وتدبّر. مساحة تجمع لك سور
                 القرآن الكريم في تجربة قراءة هادئة ومريحة للعين.
               </p>
 
@@ -48,8 +45,8 @@ export function QuranSection() {
                 </span>
 
                 <p className="text-sm leading-6 text-muted">
-                  خذ وقتك مع الآيات، وتوقّف عند معانيها؛ فليس المقصود أن تنتهي
-                  من القراءة، بل أن تنتفع بها.
+                  خذ وقتك مع الآيات, وتوقّف عند معانيها؛ فليس المقصود أن تنتهي
+                  من القراءة, بل أن تنتفع بها.
                 </p>
               </div>
             </div>
@@ -74,7 +71,7 @@ export function QuranSection() {
                   <Icon name="hands" className="size-4" />
                 </span>
                 <p className="text-xs leading-6 text-muted">
-                  يضم القرآن الكريم ١١٤ سورة، وأكثر من ٦ آلاف آية، نزلت هدايةً
+                  يضم القرآن الكريم ١١٤ سورة, وأكثر من ٦ آلاف آية, نزلت هدايةً
                   ونورًا للناس.
                 </p>
               </div>

@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "قريب – للذكر والطمأنينة",
     short_name: "قريب",
-    description: "أذكارك وقرآنك وأدعيتك في مكان واحد، أينما كنت.",
+    description: "أذكارك وقرآنك وأدعيتك في مكان واحد, أينما كنت.",
     start_url: "/",
     display: "standalone",
     orientation: "portrait",

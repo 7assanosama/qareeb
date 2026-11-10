@@ -1,6 +1,6 @@
 import { navLinks } from "@/lib/content/site";
-import { Icon } from "@/components/ui/icon";
 import { Logo } from "@/components/ui/logo";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -16,20 +16,20 @@ export function Footer() {
             <Logo variant="onDark" />
 
             <p className="max-w-sm text-sm leading-5 text-white/70">
-              مساحة تجمع لك الأذكار والقرآن والأدعية، لتجد طريقك إلى ذكر الله في
-              تفاصيل يومك، وتبقى على صلة به في كل حين.
+              مساحة تجمع لك الأذكار والقرآن والأدعية, لتجد طريقك إلى ذكر الله في
+              تفاصيل يومك, وتبقى على صلة به في كل حين.
             </p>
 
             <nav aria-label="روابط الموقع" className="mt-5">
               <ul className="flex flex-wrap gap-x-6 gap-y-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-sm font-medium text-white/70 transition-colors hover:text-white"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -45,7 +45,7 @@ export function Footer() {
 
             <figcaption className="mt-5 flex items-center gap-2 text-xs text-white/70">
               <span className="h-px w-4 bg-accent" aria-hidden="true" />
-              من دعاء سليمان عليه السلام · سورة النمل، الآية ١٩
+              من دعاء سليمان عليه السلام · سورة النمل, الآية ١٩
             </figcaption>
           </figure>
         </div>

@@ -3,8 +3,8 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { QuranSurah } from "@/lib/types/content";
-import { toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
+import { toArabicDigits } from "@/lib/utils";
 
 type Props = {
   surahs: readonly QuranSurah[];
@@ -49,7 +49,7 @@ export function SurahIndex({ surahs }: Props) {
           ? filtered.length > 0
             ? `وجدنا ${toArabicDigits(filtered.length)} من أصل ${toArabicDigits(surahs.length)} سورة`
             : "لم نعثر على سورة تطابق بحثك"
-          : `القرآن الكريم بين يديك، ${toArabicDigits(surahs.length)} سورة للقراءة`}
+          : `القرآن الكريم بين يديك, ${toArabicDigits(surahs.length)} سورة للقراءة`}
       </p>
 
       <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

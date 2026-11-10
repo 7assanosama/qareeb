@@ -48,7 +48,7 @@ export function InstallPrompt() {
   return (
     <div className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-md rounded-2xl border border-line bg-surface p-4 shadow-lift sm:inset-x-auto sm:start-4">
       <p className="text-sm text-foreground">
-        ثبّت «قريب» على جهازك، وافتحه بضغطة واحدة متى شئت.
+        ثبّت «قريب» على جهازك, وافتحه بضغطة واحدة متى شئت.
       </p>
       <div className="mt-3 flex items-center gap-2">
         <button

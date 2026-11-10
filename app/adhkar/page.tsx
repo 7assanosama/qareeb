@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 export const metadata: Metadata = {
   title: "الأذكار | قريب",
   description:
-    "أذكار الصباح والمساء والنوم والاستيقاظ، وأذكار ما بعد الصلاة، وأدعية من السنة. اختر ما يناسب وقتك واقرأه على مهل.",
+    "أذكار الصباح والمساء والنوم والاستيقاظ, وأذكار ما بعد الصلاة, وأدعية من السنة. اختر ما يناسب وقتك واقرأه على مهل.",
 };
 
 export default function AdhkarIndexPage() {
@@ -18,7 +18,7 @@ export default function AdhkarIndexPage() {
         <SectionHeading
           eyebrow="الأذكار"
           title="اختر ذكرك"
-          description="كل قسم يحفظ موضعك وعددك، لتكمل من حيث توقفت."
+          description="كل قسم يحفظ موضعك وعددك, لتكمل من حيث توقفت."
         />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {adhkarSections.map((section) => (

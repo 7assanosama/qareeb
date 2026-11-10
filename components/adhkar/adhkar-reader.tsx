@@ -154,7 +154,7 @@ export function AdhkarReader({ section }: Props) {
   if (!hydrated) {
     return (
       <div className="container-page py-16 text-center text-muted">
-        نهيّئ لك أذكارك، لحظات وتبدأ…
+        نهيّئ لك أذكارك, لحظات وتبدأ…
       </div>
     );
   }
@@ -183,7 +183,7 @@ export function AdhkarReader({ section }: Props) {
             </h2>
 
             <p className="mt-3 text-sm leading-7 text-muted">
-              تقبّل الله منك، وجعل ذكرك له نورًا وطمأنينة لقلبك.
+              تقبّل الله منك, وجعل ذكرك له نورًا وطمأنينة لقلبك.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
@@ -322,14 +322,13 @@ export function AdhkarReader({ section }: Props) {
               <div className="flex-1 text-sm leading-7 text-muted">
                 {isDone ? (
                   <span className="font-medium text-primary-ink">
-                    أحسنت، أتممت هذا الذكر. يمكنك الانتقال إلى التالي.
+                    أحسنت, أتممت هذا الذكر. يمكنك الانتقال إلى التالي.
                   </span>
                 ) : count === 0 ? (
-                  <span>خذ وقتك في القراءة، واضغط على العداد بعد كل مرة.</span>
+                  <span>خذ وقتك في القراءة, واضغط على العداد بعد كل مرة.</span>
                 ) : (
                   <span>
-                    أتممت {toArabicDigits(count)} من {toArabicDigits(target)}.
-                    {` `}
+                    أتممت {toArabicDigits(count)} من {toArabicDigits(target)}.{` `}
                     {target - count === 1
                       ? "باقية لك مرة واحدة."
                       : `تبقّت ${toArabicDigits(target - count)} مرات.`}

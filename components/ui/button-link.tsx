@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Icon } from "./icon";
 
@@ -29,7 +30,7 @@ export function ButtonLink({
   onClick,
 }: ButtonLinkProps) {
   return (
-    <a
+    <Link
       href={href}
       onClick={onClick}
       className={cn(
@@ -45,6 +46,6 @@ export function ButtonLink({
           className="size-4 transition-transform duration-200 group-hover:-translate-x-0.5"
         />
       ) : null}
-    </a>
+    </Link>
   );
 }

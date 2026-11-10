@@ -67,7 +67,7 @@ export function TasbihSection() {
         <SectionHeading
           eyebrow="لحظات مع الله"
           title="لا تنسَ ذكر الله"
-          description="اجعل لسانك رطبًا بذكر الله، وابدأ تسبيحك خطوة بخطوة."
+          description="اجعل لسانك رطبًا بذكر الله, وابدأ تسبيحك خطوة بخطوة."
         />
 
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
@@ -107,7 +107,7 @@ export function TasbihSection() {
               </p>
 
               <p className="mt-4 max-w-md text-[15px] leading-8 text-muted">
-                اختر عدد التسبيحات، وابدأ على مهل. كل ضغطة تقرّبك من إتمام وردك.
+                اختر عدد التسبيحات, وابدأ على مهل. كل ضغطة تقرّبك من إتمام وردك.
               </p>
 
               <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -140,7 +140,7 @@ export function TasbihSection() {
                 className="mt-5 min-h-6 text-sm font-medium text-muted"
               >
                 {isComplete
-                  ? `أتممت ${toArabicDigits(target)} تسبيحة، تقبّل الله منك.`
+                  ? `أتممت ${toArabicDigits(target)} تسبيحة, تقبّل الله منك.`
                   : formatTasbihRemaining(target - count)}
               </p>
             </div>
@@ -153,7 +153,7 @@ export function TasbihSection() {
                 aria-label={
                   isComplete
                     ? `أتممت ${toArabicDigits(target)} تسبيحة`
-                    : `أضف تسبيحة، العدد الحالي ${toArabicDigits(count)} من ${toArabicDigits(target)}`
+                    : `أضف تسبيحة, العدد الحالي ${toArabicDigits(count)} من ${toArabicDigits(target)}`
                 }
                 className="group relative grid size-60 place-items-center rounded-full transition-transform duration-200 active:scale-[0.98] disabled:cursor-default sm:size-64"
               >

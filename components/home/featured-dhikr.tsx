@@ -1,7 +1,6 @@
 import { afterPrayer } from "@/lib/content";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Icon } from "@/components/ui/icon";
-import { toArabicDigits } from "@/lib/utils";
 
 export function FeaturedDhikrCard() {
   return (
@@ -27,7 +26,7 @@ export function FeaturedDhikrCard() {
 
           <p className="mt-4 max-w-lg text-[15px] leading-8 text-white/75">
             لا تجعل سلامك نهاية لحظاتك مع الله. خذ من وقتك دقائق للتسبيح
-            والتحميد والتكبير، وأتبع صلاتك بذكره.
+            والتحميد والتكبير, وأتبع صلاتك بذكره.
           </p>
 
           <ul className="mt-6 space-y-2">
@@ -38,7 +37,7 @@ export function FeaturedDhikrCard() {
               >
                 <span className="leading-7">{item.text}</span>
                 <span className="shrink-0 rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white/70">
-                  ×{toArabicDigits(item.repeat)}
+                  ×{item.repeat}
                 </span>
               </li>
             ))}

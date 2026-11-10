@@ -10,11 +10,25 @@ import type { Dhikr } from "@/lib/types/content";
 import { formatSavedDhikrCount, toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
 
-function buildIndex(): Map<string, { item: Dhikr; sectionId: string; sectionTitle: string }> {
-  const map = new Map<string, { item: Dhikr; sectionId: string; sectionTitle: string }>();
+type FavoriteEntry = {
+  item: Dhikr;
+  sectionId: string;
+  sectionTitle: string;
+  href: string;
+  linkLabel: string;
+};
+
+function buildIndex(): Map<string, FavoriteEntry> {
+  const map = new Map<string, FavoriteEntry>();
   for (const section of adhkarSections) {
     for (const item of section.items) {
-      map.set(item.id, { item, sectionId: section.id, sectionTitle: section.title });
+      map.set(item.id, {
+        item,
+        sectionId: section.id,
+        sectionTitle: section.title,
+        href: `/adhkar/${section.id}`,
+        linkLabel: section.title,
+      });
     }
   }
   for (const category of hisnCategories) {
@@ -23,6 +37,10 @@ function buildIndex(): Map<string, { item: Dhikr; sectionId: string; sectionTitl
         item,
         sectionId: category.id,
         sectionTitle: category.title,
+        // Hisn categories do not have dedicated routes; offer the adhkar
+        // index as a clear, valid fallback destination instead of a 404.
+        href: "/adhkar",
+        linkLabel: "تصفح الأذكار",
       });
     }
   }
@@ -50,7 +68,7 @@ export function FavoritesView() {
   if (!hydrated) {
     return (
       <div className="container-page py-16 text-center text-muted">
-        لحظة، نفتح لك مفضلتك…
+        لحظة, نفتح لك مفضلتك…
       </div>
     );
   }
@@ -71,7 +89,7 @@ export function FavoritesView() {
               لم تحفظ شيئًا بعد
             </h2>
             <p className="mt-2 text-sm leading-7 text-muted">
-              إذا أعجبك ذكر وأردت العودة إليه، اضغط أيقونة الحفظ وسيظهر هنا.
+              إذا أعجبك ذكر وأردت العودة إليه, اضغط أيقونة الحفظ وسيظهر هنا.
             </p>
             <Link
               href="/adhkar"
@@ -89,13 +107,15 @@ export function FavoritesView() {
     <section className="py-12 sm:py-16">
       <div className="container-page">
         <div className="mx-auto max-w-2xl">
-          <h1 className="font-display text-3xl font-bold sm:text-4xl">المفضلة</h1>
+          <h1 className="font-display text-3xl font-bold sm:text-4xl">
+            المفضلة
+          </h1>
           <p className="mt-2 text-sm text-muted">
             في مفضلتك {formatSavedDhikrCount(resolved.length)}
           </p>
 
           <ul className="mt-8 space-y-4">
-            {resolved.map(({ item, sectionId, sectionTitle }) => (
+            {resolved.map(({ item, href, linkLabel }) => (
               <li
                 key={item.id}
                 className="rounded-4xl border border-line bg-surface p-5 shadow-soft"
@@ -117,10 +137,10 @@ export function FavoritesView() {
                   <span>×{toArabicDigits(item.repeat)}</span>
                   <span>·</span>
                   <Link
-                    href={`/adhkar/${sectionId}`}
+                    href={href}
                     className="text-primary-ink transition-colors hover:underline"
                   >
-                    {sectionTitle}
+                    {linkLabel}
                   </Link>
                 </div>
               </li>

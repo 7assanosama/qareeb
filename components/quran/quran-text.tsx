@@ -6,7 +6,7 @@ import { cn, toArabicIndicDigits } from "@/lib/utils";
 
 type Props = {
   /**
-   * نصوص الآيات كما وردت من مصدر البيانات، دون أي معالجة أو تعديل،
+   * نصوص الآيات كما وردت من مصدر البيانات, دون أي معالجة أو تعديل,
    * للحفاظ على الرسم العثماني وعلامات الوقف والتشكيل تمامًا.
    */
   ayahs: readonly QuranAyah[];
@@ -18,7 +18,7 @@ type Props = {
 /**
  * يعرض نص الآيات القرآنية مع أرقام الآيات كعلامات نهاية آية.
  *
- * في خط KFGQPC Uthmanic Script HAFS تُركَّب الأرقام الهندية (١-٢٨٦، كل
+ * في خط KFGQPC Uthmanic Script HAFS تُركَّب الأرقام الهندية (١-٢٨٦, كل
  * أرقام الآيات في المصحف) عبر GSUB في زخرفة علامة آية واحدة تحمل الرقم
  * داخلها. لذلك يُعرض الرقم وحده دون علامة ۝ صريحة: إضافة ۝ يدويًا تُرسم
  * زخرفتين متجاورتين (علامة فارغة + زخرفة الرقم). التحقق من ذلك موثق في
@@ -40,7 +40,7 @@ export function QuranText({ ayahs, fontSize = 18, className }: Props) {
         <React.Fragment key={ayah.number}>
           <span className="inline">{ayah.text}</span>
           <span
-            className="inline-flex items-center rounded-sm bg-primary-soft/50 text-[0.7em] text-primary-ink mx-[0.3em] whitespace-nowrap leading-none px-1.5"
+            className="inline-flex items-center text-[0.7em] text-primary-ink mx-[0.3em] whitespace-nowrap leading-none px-1.5"
             aria-label={`رقم الآية ${toArabicIndicDigits(ayah.number)}`}
           >
             {/* الرقم وحده: الخط يركّبه في زخرفة علامة الآية كاملة */}

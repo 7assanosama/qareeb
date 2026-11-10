@@ -11,10 +11,10 @@ import "./globals.css";
 
 /*
  * KFGQPC Uthmanic Script HAFS (الإصدار 0.09) — الخط الأصلي لخط الرسم
- * العثماني من مجمع الملك فهد لطباعة المصحف الشريف، مع جداول GSUB/GPOS
+ * العثماني من مجمع الملك فهد لطباعة المصحف الشريف, مع جداول GSUB/GPOS
  * كاملة (init/medi/fina/liga/calt وmark/mkmk/curs).
  * الملف المرخص: app/fonts/uthmanic-hafs.otf (راجع app/fonts/README.md).
- * next/font/local يقدّمه دون تعديل فيبقى التركيب الرسومي سليمًا، مع
+ * next/font/local يقدّمه دون تعديل فيبقى التركيب الرسومي سليمًا, مع
  * تحميل مسبق تلقائي وخط احتياطي مضبوط المقاييس لتقليل CLS.
  * هذا الخط هو الخط الأساسي لجميع نصوص الموقع (عربي).
  */
@@ -30,7 +30,7 @@ const quranFont = localFont({
 const themeScript = `(function(){try{var t=localStorage.getItem("qareeb-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;var v=d?"dark":"light";document.documentElement.dataset.theme=v;document.documentElement.style.colorScheme=v;}catch(e){}})();`;
 
 const description =
-  "مساحتك في قريب للذكر والطمأنينة: أذكار وقرآن وأدعية في مكان واحد، بخط مريح وتصفح بسيط.";
+  "مساحتك في قريب للذكر والطمأنينة: أذكار وقرآن وأدعية في مكان واحد, بخط مريح وتصفح بسيط.";
 
 export const metadata: Metadata = {
   title: "قريب | للذكر والقرآن",
@@ -107,7 +107,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               url: "https://qareeb.sifrmind.com",
               inLanguage: "ar",
               description:
-                "أذكار وقرآن وأدعية في مكان واحد، بخط مريح وتصفح بسيط.",
+                "أذكار وقرآن وأدعية في مكان واحد, بخط مريح وتصفح بسيط.",
             }),
           }}
         />

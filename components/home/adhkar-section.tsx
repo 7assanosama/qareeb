@@ -11,7 +11,7 @@ export function AdhkarSection() {
         <SectionHeading
           eyebrow="الأذكار"
           title="اجعل لسانك عامرًا بذكر الله"
-          description="أذكار وأدعية من القرآن والسنة، تجد بينها ما تبدأ به يومك وما تختم به ليلتك."
+          description="أذكار وأدعية من القرآن والسنة, تجد بينها ما تبدأ به يومك وما تختم به ليلتك."
         />
 
         <FeaturedDhikrCard />
@@ -23,7 +23,7 @@ export function AdhkarSection() {
                 اختر ما يوافق وقتك
               </h3>
               <p className="mt-2 text-sm leading-7 text-muted">
-                لكل لحظة ذكر يقرّبك من الله، ابدأ بما تحتاج إليه الآن.
+                لكل لحظة ذكر يقرّبك من الله, ابدأ بما تحتاج إليه الآن.
               </p>
             </div>
             <span className="hidden items-center gap-2 text-xs text-muted sm:flex"> 

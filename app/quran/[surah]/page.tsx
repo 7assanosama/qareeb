@@ -36,9 +36,7 @@ export default async function QuranSurahPage({
   const position = surahs.indexOf(number);
   const prevSurah = position > 0 ? surahs[position - 1] : null;
   const nextSurah =
-    position >= 0 && position < surahs.length - 1
-      ? surahs[position + 1]
-      : null;
+    position >= 0 && position < surahs.length - 1 ? surahs[position + 1] : null;
 
   return (
     <QuranReader surah={surah} prevSurah={prevSurah} nextSurah={nextSurah} />
