@@ -25,6 +25,7 @@ function isActiveLink(href: string, pathname: string, hash: string): boolean {
     // its dedicated page as well.
     if (href === "/#adhkar" && pathname.startsWith("/adhkar")) return true;
     if (href === "/#quran" && pathname.startsWith("/quran")) return true;
+    if (href === "/#ruqyah" && pathname.startsWith("/ruqyah")) return true;
     if (href === "/#tasbih") return false;
     return false;
   }
@@ -142,7 +143,7 @@ export function Header() {
         </Link>
         <nav
           aria-label="التنقل الرئيسي"
-          className="hidden items-center gap-8 md:flex"
+          className="hidden items-center gap-5 md:flex lg:gap-8"
         >
           {navLinks.map((link) => {
             const active = isActiveLink(link.href, pathname, hash);

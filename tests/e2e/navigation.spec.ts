@@ -7,6 +7,7 @@ test.describe("Navigation (desktop)", () => {
     await expect(nav.getByRole("link", { name: "الرئيسية" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "الأذكار" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "القرآن" })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "الرقية" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "التسبيح" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "المفضلة" })).toBeVisible();
   });

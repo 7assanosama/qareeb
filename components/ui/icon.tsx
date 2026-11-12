@@ -11,6 +11,8 @@ export type IconName =
   | "menu"
   | "moon"
   | "moon-star"
+  | "pause"
+  | "play"
   | "plus"
   | "prayer"
   | "reset"
@@ -63,6 +65,13 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M16.3 4.7h2.4" />
     </>
   ),
+  pause: (
+    <>
+      <path d="M9 5v14" />
+      <path d="M15 5v14" />
+    </>
+  ),
+  play: <path d="m8 5 11 7-11 7V5Z" />,
   plus: <path d="M12 5v14M5 12h14" />,
   prayer: (
     <>

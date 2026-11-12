@@ -4,52 +4,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { loadState, saveState } from "@/lib/storage";
-import { adhkarSections } from "@/lib/content/adhkar";
-import { hisnCategories } from "@/lib/content/hisn";
-import type { Dhikr } from "@/lib/types/content";
+import type { FavoriteEntry } from "@/lib/content/favorites";
 import { formatSavedDhikrCount, toArabicDigits } from "@/lib/utils";
 import { Icon } from "@/components/ui/icon";
 
-type FavoriteEntry = {
-  item: Dhikr;
-  sectionId: string;
-  sectionTitle: string;
-  href: string;
-  linkLabel: string;
+type Props = {
+  index: Record<string, FavoriteEntry>;
 };
 
-function buildIndex(): Map<string, FavoriteEntry> {
-  const map = new Map<string, FavoriteEntry>();
-  for (const section of adhkarSections) {
-    for (const item of section.items) {
-      map.set(item.id, {
-        item,
-        sectionId: section.id,
-        sectionTitle: section.title,
-        href: `/adhkar/${section.id}`,
-        linkLabel: section.title,
-      });
-    }
-  }
-  for (const category of hisnCategories) {
-    for (const item of category.items) {
-      map.set(item.id, {
-        item,
-        sectionId: category.id,
-        sectionTitle: category.title,
-        // Hisn categories do not have dedicated routes; offer the adhkar
-        // index as a clear, valid fallback destination instead of a 404.
-        href: "/adhkar",
-        linkLabel: "تصفح الأذكار",
-      });
-    }
-  }
-  return map;
-}
-
-const INDEX = buildIndex();
-
-export function FavoritesView() {
+export function FavoritesView({ index }: Props) {
   const [ids, setIds] = useState<string[]>([]);
   const [hydrated, setHydrated] = useState(false);
 
@@ -74,8 +37,8 @@ export function FavoritesView() {
   }
 
   const resolved = ids
-    .map((id) => INDEX.get(id))
-    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
+    .map((id) => index[id])
+    .filter((entry): entry is FavoriteEntry => Boolean(entry));
 
   if (resolved.length === 0) {
     return (

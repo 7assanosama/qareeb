@@ -9,6 +9,7 @@ export const navLinks: NavLink[] = [
   { label: "الرئيسية", href: "/" },
   { label: "الأذكار", href: "/#adhkar" },
   { label: "القرآن", href: "/#quran" },
+  { label: "الرقية", href: "/#ruqyah" },
   { label: "التسبيح", href: "/#tasbih" },
   { label: "المفضلة", href: "/favorites" },
 ];

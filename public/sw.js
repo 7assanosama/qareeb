@@ -1,7 +1,10 @@
 /* Qareeb Service Worker */
-const CACHE_VERSION = "qareeb-v2";
+const CACHE_VERSION = "qareeb-v4";
 const SHELL_CACHE = "qareeb-shell-" + CACHE_VERSION;
 const RUNTIME_CACHE = "qareeb-runtime-" + CACHE_VERSION;
+// Owned by components/ruqyah/ruqyah-audio.tsx. It must survive shell upgrades
+// so recitations cached on first play stay available offline.
+const AUDIO_CACHE = "qareeb-audio-v3";
 
 const ADHKAR_SECTIONS = [
   "after-prayer",
@@ -12,7 +15,13 @@ const ADHKAR_SECTIONS = [
   "prophetic-duas",
 ];
 
-const PRECACHE_ROUTES = ["/", "/adhkar", "/favorites", "/quran"]
+const PRECACHE_ROUTES = [
+  "/",
+  "/adhkar",
+  "/favorites",
+  "/quran",
+  "/ruqyah",
+]
   .concat(ADHKAR_SECTIONS.map((id) => "/adhkar/" + id))
   .concat(Array.from({ length: 114 }, (_, i) => "/quran/" + (i + 1)));
 
@@ -44,7 +53,12 @@ self.addEventListener("activate", (event) => {
       const keys = await caches.keys();
       await Promise.all(
         keys
-          .filter((key) => key !== SHELL_CACHE && key !== RUNTIME_CACHE)
+          .filter(
+            (key) =>
+              key !== SHELL_CACHE &&
+              key !== RUNTIME_CACHE &&
+              key !== AUDIO_CACHE,
+          )
           .map((key) => caches.delete(key)),
       );
       await self.clients.claim();
